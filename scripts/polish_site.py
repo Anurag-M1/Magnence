@@ -265,8 +265,8 @@ def sweep_text(text: str) -> str:
 
 
 def patch_magnence_overrides(html: str) -> str:
-    if "magnence-process-icons" in html:
-        return html
+    # Active remove the legacy process-icons script
+    html = re.sub(r'<script id="magnence-process-icons">.*?</script>\s*', '', html, flags=re.DOTALL)
 
     if "magnence-overrides" in html and "Process step symbols" not in html:
         html = html.replace(
@@ -282,10 +282,6 @@ def patch_magnence_overrides(html: str) -> str:
                 marker + PROCESS_CSS,
                 1,
             )
-
-    script = f'<script id="magnence-process-icons">{PROCESS_JS}</script>'
-    if "magnence-process-icons" not in html:
-        html = html.replace("</body>", script + "\n</body>", 1)
     return html
 
 

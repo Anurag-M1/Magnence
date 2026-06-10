@@ -193,26 +193,5 @@ a.framer-r984el .framer-i0lp3 {
     <!-- Start of bodyEnd -->
     
     <!-- End of bodyEnd -->
-<script id="magnence-process-icons">
-(function () {
-  var ICONS = ["\u{1F33F}", "\u{1F300}", "\u{1FA90}"]; /* leaf, windmill, planet */
-  function inject() {
-    var section = document.getElementById("process");
-    if (!section) return;
-    var containers = section.querySelectorAll('[data-framer-name="Icon"] .framer-8vporc-container, [data-framer-name="Icon"] [class*="8vporc-container"]');
-    containers.forEach(function (el, i) {
-      if (el.querySelector(".magnence-step-symbol")) return;
-      var sym = document.createElement("span");
-      sym.className = "magnence-step-symbol";
-      sym.setAttribute("aria-hidden", "true");
-      sym.textContent = ICONS[i % ICONS.length];
-      el.innerHTML = "";
-      el.appendChild(sym);
-    });
-  }
-  inject();
-  new MutationObserver(inject).observe(document.documentElement, { childList: true, subtree: true });
-})();
-</script>
 </body>
 </html>
