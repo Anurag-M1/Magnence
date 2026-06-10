@@ -139,6 +139,15 @@ REPLACEMENTS: list[tuple[str, str]] = [
     ('defaultValue:"Design Sprint"', 'defaultValue:"UX MOODBOARD"'),
     ('defaultValue:"Content Marketing"', 'defaultValue:"CONTENT STRATEGY"'),
 
+    # home.mjs process card default hardcoded children & fallbacks
+    ('children:"Discovery"', 'children:"AI CREATION"'),
+    ('children:" Design Sprint"', 'children:"UX MOODBOARD"'),
+    ('children:"Content Marketing"', 'children:"CONTENT STRATEGY"'),
+    ('b:"Discovery"', 'b:"AI CREATION"'),
+    ('S:" Design Sprint"', 'S:"UX MOODBOARD"'),
+    ('Q:"Content Marketing"', 'Q:"CONTENT STRATEGY"'),
+
+
     # Header restoration
     ('HOW WE WORK</h5>', 'WELCOME TO THE WORK PROCESS</h5>'),
     ('children:"HOW WE WORK"', 'children:"WELCOME TO THE WORK PROCESS"'),
