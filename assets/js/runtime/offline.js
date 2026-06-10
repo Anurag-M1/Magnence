@@ -121,6 +121,6 @@
     rewriteExistingAttributes();
     removeExportedBadges();
   }
-})();
 
   new MutationObserver(removeExportedBadges).observe(document.documentElement, { childList: true, subtree: true });
+})();
