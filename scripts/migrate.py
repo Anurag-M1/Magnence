@@ -129,7 +129,7 @@ opacity:0!important;pointer-events:none!important;position:absolute!important;wi
 height:0!important;overflow:hidden!important}
 [data-framer-name="Nav Menu"],.framer-AgH81,header.framer-AgH81,.framer-xtqlxw-container,
 .framer-1inyamc-container,.framer-1eixyol-container{position:sticky!important;top:0!important;z-index:2000!important}
-.framer-r984el{width:200px!important;height:52px!important;aspect-ratio:3.846!important;min-width:200px!important}
+.framer-r984el{width:150px!important;height:52px!important;aspect-ratio:2.885!important;min-width:150px!important}
 .framer-r984el img{object-fit:contain!important;object-position:left center!important}
 </style>"""
 
