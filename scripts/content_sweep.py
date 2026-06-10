@@ -70,11 +70,7 @@ REPLACEMENTS: list[tuple[str, str]] = [
     ("AI-Led", "Full-Service"),
     ("AI-led", "full-service"),
     # Process section
-    ("WELCOME TO THE WORK PROCESS", "HOW WE WORK"),
-    ("ai CREATION", "Discovery"),
-    ("ux MOODBOard", "Design Sprint"),
-    ("auto enhancing", "Optimization"),
-    ("front-end", "Development"),
+
     # Voice section
     ("VOICE OF CE-yO.", "FROM THE CEO."),
     # Misc template

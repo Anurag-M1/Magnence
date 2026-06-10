@@ -48,15 +48,13 @@ PROCESS_CSS = """
   z-index: 2 !important;
   pointer-events: none !important;
 }
-#process [data-framer-name="Icon"] .magnence-step-symbol {
-  font-size: 52px !important;
-  line-height: 1 !important;
+#process [data-framer-name="Icon"] .magnence-step-symbol-svg {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 100% !important;
-  height: 100% !important;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+  width: 30px !important;
+  height: 30px !important;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
 }
 #process [data-framer-name="Detailing Image"] {
   min-height: 280px !important;
@@ -76,17 +74,26 @@ PROCESS_CSS = """
 
 PROCESS_JS = """
 (function () {
-  var ICONS = ["\\u{1F33F}", "\\u{1F300}", "\\u{1FA90}"]; /* leaf, windmill, planet */
+  var SVGS = [
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" style="display:block;width:100%;height:100%;fill:currentColor;color:rgb(20,20,20);"><path d="M63.81,192.19c-47.89-79.81,16-159.62,151.64-151.64C223.43,176.23,143.62,240.08,63.81,192.19Z" opacity="0.2"/><path d="M223.45,40.07a8,8,0,0,0-7.52-7.52C139.8,28.08,78.82,51,52.82,94a87.09,87.09,0,0,0-12.76,49c.57,15.92,5.21,32,13.79,47.85l-19.51,19.5a8,8,0,0,0,11.32,11.32l19.5-19.51C81,210.73,97.09,215.37,113,215.94q1.67.06,3.33.06A86.93,86.93,0,0,0,162,203.18C205,177.18,227.93,116.21,223.45,40.07ZM153.75,189.5c-22.75,13.78-49.68,14-76.71.77l88.63-88.62a8,8,0,0,0-11.32-11.32L65.73,179c-13.19-27-13-54,.77-76.71,22.09-36.47,74.6-56.44,141.31-54.06C210.2,114.89,190.22,167.41,153.75,189.5Z"/></svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" style="display:block;width:100%;height:100%;fill:currentColor;color:rgb(20,20,20);"><path d="M176,232H80l10.27-71.89,17.63-30,58.46,34.41Z" opacity="0.2"/><path d="M224,224H182.94l-6.3-44.12,3.24,1.91a16,16,0,0,0,21.91-5.67l12-20.34a16,16,0,0,0-5.67-21.91l-35-20.61,40.69-69.13a16,16,0,0,0-5.67-21.91l-20.34-12a16,16,0,0,0-21.91,5.67l-20.61,35L76.12,10.22a16,16,0,0,0-21.91,5.67l-12,20.33a16,16,0,0,0,5.67,21.92l35,20.61L42.21,147.88a16,16,0,0,0,5.67,21.91l20.34,12a15.57,15.57,0,0,0,10.58,2L73.06,224H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16Zm-24-76.34L188,168l-69.13-40.69,12-20.35ZM179.66,24,200,36l-40.69,69.14L139,93.17ZM56,44.35,68,24,137.14,64.7l-12,20.35ZM76.34,168,56,156,96.69,86.86l20.36,12Zm12.88,56L98,162.8l12.77-21.7L159,169.5l7.79,54.5Z"/></svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" style="display:block;width:100%;height:100%;fill:currentColor;color:rgb(20,20,20);"><path d="M216,128a88,88,0,1,1-88-88A88,88,0,0,1,216,128Z" opacity="0.2"/><path d="M245.11,60.68c-7.65-13.19-27.84-16.16-58.5-8.66A95.93,95.93,0,0,0,32,128a98,98,0,0,0,.78,12.31C5.09,169,5.49,186,10.9,195.32,16,204.16,26.64,208,40.64,208a124.11,124.11,0,0,0,28.79-4A95.93,95.93,0,0,0,224,128a97.08,97.08,0,0,0-.77-12.25c12.5-13,20.82-25.35,23.65-35.92C248.83,72.51,248.24,66.07,245.11,60.68ZM128,48a80.11,80.11,0,0,1,78,62.2c-17.06,16.06-40.15,32.53-62.07,45.13C116.38,171.14,92.48,181,73.42,186.4A79.94,79.94,0,0,1,128,48ZM24.74,187.29c-1.46-2.51-.65-7.24,2.22-13a79.05,79.05,0,0,1,10.29-15.05,96,96,0,0,0,18,31.32C38,193.46,27.24,191.61,24.74,187.29ZM128,208a79.45,79.45,0,0,1-38.56-9.94,370,370,0,0,0,62.43-28.86c21.58-12.39,40.68-25.82,56.07-39.08A80.07,80.07,0,0,1,128,208ZM231.42,75.69c-1.7,6.31-6.19,13.53-12.63,21.13a95.69,95.69,0,0,0-18-31.35c14.21-2.35,27.37-2.17,30.5,3.24C232.19,70.28,232.24,72.63,231.42,75.69Z"/></svg>'
+  ];
   function inject() {
     var section = document.getElementById("process");
     if (!section) return;
     var containers = section.querySelectorAll('[data-framer-name="Icon"] .framer-8vporc-container, [data-framer-name="Icon"] [class*="8vporc-container"]');
     containers.forEach(function (el, i) {
-      if (el.querySelector(".magnence-step-symbol")) return;
-      var sym = document.createElement("span");
-      sym.className = "magnence-step-symbol";
+      if (el.querySelector(".magnence-step-symbol-svg")) return;
+      var sym = document.createElement("div");
+      sym.className = "magnence-step-symbol-svg";
       sym.setAttribute("aria-hidden", "true");
-      sym.textContent = ICONS[i % ICONS.length];
+      sym.style.width = "30px";
+      sym.style.height = "30px";
+      sym.style.display = "flex";
+      sym.style.alignItems = "center";
+      sym.style.justifyContent = "center";
+      sym.innerHTML = SVGS[i % SVGS.length];
       el.innerHTML = "";
       el.appendChild(sym);
     });
@@ -97,6 +104,45 @@ PROCESS_JS = """
 """
 
 REPLACEMENTS: list[tuple[str, str]] = [
+    # Process section titles - HTML
+    ('class="framer-text">Production</h6>', 'class="framer-text">PRODUCTION</h6>'),
+    ('class="framer-text">Post</h6>', 'class="framer-text">POST</h6>'),
+    ('style="--framer-text-alignment:center">Discovery</p>', 'style="--framer-text-alignment:center">AI CREATION</p>'),
+    ('style="--framer-text-alignment:center"> Design Sprint</p>', 'style="--framer-text-alignment:center">UX MOODBOARD</p>'),
+    ('style="--framer-text-alignment:center">Design Sprint</p>', 'style="--framer-text-alignment:center">UX MOODBOARD</p>'),
+    ('style="--framer-text-alignment:center">Content Marketing</p>', 'style="--framer-text-alignment:center">CONTENT STRATEGY</p>'),
+    ('style="--framer-text-alignment:center">Development</p>', 'style="--framer-text-alignment:center">FRONT-END</p>'),
+    ('style="--framer-text-alignment:center">AI Integration</p>', 'style="--framer-text-alignment:center">AI IMPLEMENT</p>'),
+    ('style="--framer-text-alignment:center">Video Editing</p>', 'style="--framer-text-alignment:center">MOTION DESIGN</p>'),
+    ('style="--framer-text-alignment:center">deployment</p>', 'style="--framer-text-alignment:center">DEPLOYMENT</p>'),
+    ('style="--framer-text-alignment:center">Deployment</p>', 'style="--framer-text-alignment:center">DEPLOYMENT</p>'),
+    ('style="--framer-text-alignment:center">Optimization</p>', 'style="--framer-text-alignment:center">AUTO ENHANCING</p>'),
+    ('style="--framer-text-alignment:center">Product Marketing</p>', 'style="--framer-text-alignment:center">PRODUCT MARKETING</p>'),
+
+    # Process section titles - JS attributes / variables
+    ('wdewp3Cqj:"Production"', 'wdewp3Cqj:"PRODUCTION"'),
+    ('wdewp3Cqj:"Post"', 'wdewp3Cqj:"POST"'),
+    ('zK4dx5gI0:"Discovery"', 'zK4dx5gI0:"AI CREATION"'),
+    ('rPVLqvqQi:" Design Sprint"', 'rPVLqvqQi:"UX MOODBOARD"'),
+    ('rPVLqvqQi:"Design Sprint"', 'rPVLqvqQi:"UX MOODBOARD"'),
+    ('uyJTFZ8Ot:"Content Marketing"', 'uyJTFZ8Ot:"CONTENT STRATEGY"'),
+    ('zK4dx5gI0:"Development"', 'zK4dx5gI0:"FRONT-END"'),
+    ('rPVLqvqQi:"AI Integration"', 'rPVLqvqQi:"AI IMPLEMENT"'),
+    ('uyJTFZ8Ot:"Video Editing"', 'uyJTFZ8Ot:"MOTION DESIGN"'),
+    ('zK4dx5gI0:"deployment"', 'zK4dx5gI0:"DEPLOYMENT"'),
+    ('rPVLqvqQi:"Optimization"', 'rPVLqvqQi:"AUTO ENHANCING"'),
+    ('uyJTFZ8Ot:"Product Marketing"', 'uyJTFZ8Ot:"PRODUCT MARKETING"'),
+
+    # Process section default values (in React components definition)
+    ('defaultValue:"Discovery"', 'defaultValue:"AI CREATION"'),
+    ('defaultValue:" Design Sprint"', 'defaultValue:"UX MOODBOARD"'),
+    ('defaultValue:"Design Sprint"', 'defaultValue:"UX MOODBOARD"'),
+    ('defaultValue:"Content Marketing"', 'defaultValue:"CONTENT STRATEGY"'),
+
+    # Header restoration
+    ('HOW WE WORK</h5>', 'WELCOME TO THE WORK PROCESS</h5>'),
+    ('children:"HOW WE WORK"', 'children:"WELCOME TO THE WORK PROCESS"'),
+
     # Taglines
     (
         "⚡ DESIGN  ·  💻 DEVELOP  ·  📣 MARKET  ·  ✂️ EDIT  ·  🚀 DELIVER  ·  MAGNENCE",
