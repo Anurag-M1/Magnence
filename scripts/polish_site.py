@@ -8,10 +8,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-TAGLINE = "✦ STRATEGIZE · CREATE · ENGINEER · AMPLIFY · MAGNENCE"
-TAGLINE_TICKER = (
-    "✦ STRATEGIZE · 🎨 CREATE · 💻 ENGINEER · 📣 AMPLIFY · ✨ MAGNENCE"
-)
+TAGLINE = "STRATEGIZE · CREATE · ENGINEER · AMPLIFY · MAGNENCE"
+TAGLINE_TICKER = "STRATEGIZE · CREATE · ENGINEER · AMPLIFY · MAGNENCE · "
 
 FONT_CREDIT_OLD = (
     "Fjalla One and Inter Display are used under the terms of free license "
@@ -167,7 +165,7 @@ REPLACEMENTS: list[tuple[str, str]] = [
     ),
     (
         "⚡ DESIGN · 💻 DEVELOP · 📣 MARKET · ✂️ EDIT · MAGNENCE",
-        "✦ STRATEGIZE · 🎨 CREATE · 💻 ENGINEER · 📣 AMPLIFY · ✨ MAGNENCE",
+        TAGLINE_TICKER,
     ),
     (
         "FULL-SERVICE AGENCY 💛 DESIGN DEVELOP MARKET EDIT 🌈 BUILT FOR GROWING BRANDS ⚡",
@@ -183,7 +181,11 @@ REPLACEMENTS: list[tuple[str, str]] = [
     ),
     (
         "MAGNENCE AGENCY  \\u{1F49B}  STRATEGIZE · CREATE · ENGINEER · AMPLIFY  \\u{1F308}  CRAFTED IN GURUGRAM  \\u{26A1}",
+        TAGLINE_TICKER,
+    ),
+    (
         "✦ STRATEGIZE · 🎨 CREATE · 💻 ENGINEER · 📣 AMPLIFY · ✨ MAGNENCE",
+        TAGLINE_TICKER,
     ),
     # Footer / font credits (HTML escaped)
     ("Get a Remix link", "Launch With Magnence →"),
